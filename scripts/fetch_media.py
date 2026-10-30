@@ -1,6 +1,6 @@
 import json, os, urllib.request, xml.etree.ElementTree as ET
 
-LFM_USER = "thomasls.1972"
+LFM_USER = "thomas_1972"
 LB_USER = "thomasls"
 
 def get(url):
