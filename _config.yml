@@ -43,7 +43,7 @@ collections:
 # Front matter defaults
 defaults:
   - scope: {path: "", type: "projects"}
-    values: {layout: "page"}
+    values: {layout: "project"}
   - scope: {path: "", type: "posts"}
     values: {layout: "post"}
 
