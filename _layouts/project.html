@@ -1,0 +1,7 @@
+---
+layout: page
+---
+<p class="post-meta">{{ page.year }}{% if page.status %} · {{ page.status }}{% endif %}</p>
+{{ content }}
+{% if page.repo %}<p><a href="{{ page.repo }}">View code →</a></p>{% endif %}
+{% if page.demo %}<p><a href="{{ page.demo }}">Live demo →</a></p>{% endif %}
