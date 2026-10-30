@@ -1,0 +1,13 @@
+---
+---
+@import "minima";
+
+.tracks { list-style: none; margin: 0; padding: 0; }
+.tracks li { display: flex; gap: 12px; align-items: center; margin-bottom: 12px; }
+.tracks img, .tracks .noart { width: 64px; height: 64px; flex: none; border-radius: 4px; background: #ddd; }
+
+.films { display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 16px; }
+.film { display: flex; flex-direction: column; text-decoration: none; }
+.film img { width: 100%; aspect-ratio: 2 / 3; object-fit: cover; border-radius: 4px; }
+.film-title { font-size: 0.85em; margin-top: 4px; line-height: 1.2; }
+.film small { color: #828282; }
