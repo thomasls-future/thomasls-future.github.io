@@ -20,12 +20,11 @@
 
 title: My Name Is Thomas
 email: thomasls@gmail.com
-description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+url: "https://thomasls-future.github.io"
+description: >-
+  Writing and projects by Thomas, plus what I'm listening to and watching.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "thomasls.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+url: "thomasls-future.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: # jekyllrb
 github_username:  thomasls-future
 
@@ -33,6 +32,36 @@ github_username:  thomasls-future
 theme: minima
 plugins:
   - jekyll-feed
+  - jekyll-remote-theme   # only needed if you switch to a remote theme
+
+# Portfolio collection
+collections:
+  projects:
+    output: true
+    permalink: /projects/:name/
+
+# Front matter defaults
+defaults:
+  - scope: {path: "", type: "projects"}
+    values: {layout: "page"}
+  - scope: {path: "", type: "posts"}
+    values: {layout: "post"}
+
+# Header nav (minima reads this)
+header_pages:
+  - about.markdown
+  - projects.md
+  - media.md
+
+# Keep non-site files out of the build
+exclude:
+  - scripts/
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor/
+
+
 
 # Exclude from processing.
 # The following items will not be processed, by default.
