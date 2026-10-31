@@ -21,9 +21,9 @@ permalink: /media/
 {% for f in site.data.letterboxd limit:8 %}
   <a href="{{ f.link }}" class="tile">
     {% if f.poster != "" %}<img src="{{ f.poster }}" alt="{{ f.title }} poster" loading="lazy">{% endif %}
-    <span class="tile-title">{{ f.title }}</span>
-    <small>{{ f.year }}</small>
-    <small>{{ f.watched | date: "%b %-d" }}</small>
+    <span class="tile-title">{{ f.title }} ({{ f.year }})</span>
+    {% if f.stars and f.stars != "" %}<small class="stars">{{ f.stars }}</small>{% endif %}
+    <small>{{ f.watched | date: "%b %-d, %Y" }}</small>
   </a>
 {% endfor %}
 </div>
