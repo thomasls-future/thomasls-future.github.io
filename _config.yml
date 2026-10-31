@@ -26,7 +26,10 @@ description: >-
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "thomasls-future.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: # jekyllrb
-github_username:  thomasls-future
+github_username: thomasls-future
+linkedin_username: thomasstricklnd       # the part after linkedin.com/in/
+bluesky_username: thomaslstrickland.bsky.social      # your full handle
+
 
 # Build settings
 theme: minima
