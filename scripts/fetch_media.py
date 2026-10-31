@@ -7,14 +7,25 @@ LB_USER = "thomasls"
 # Last.fm's generic "no art" placeholder
 LFM_PLACEHOLDER = "2a96cbd8b46e442fc41c2b86b821562f"
 
+
 def get(url):
     req = urllib.request.Request(url, headers={"User-Agent": "media-sync"})
     return urllib.request.urlopen(req, timeout=30).read()
+
 
 def save(path, data):
     with open(path, "w") as f:
         json.dump(data, f, indent=1)
 
+
+def stars(r):
+    if not r:
+        return ""
+    r = float(r)
+    return "★" * int(r) + ("½" if r % 1 else "")
+
+
+# --- Last.fm ---
 try:
     lfm = json.loads(get(
         "https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks"
@@ -39,12 +50,7 @@ try:
 except Exception as e:
     print("Last.fm fetch failed:", e)
 
-def stars(r):
-    if not r:
-        return ""
-    r = float(r)
-    return "★" * int(r) + ("½" if r % 1 else "")
-
+# --- Letterboxd ---
 try:
     ns = {"lb": "https://letterboxd.com"}
     root = ET.fromstring(get(f"https://letterboxd.com/{LB_USER}/rss/"))
@@ -57,14 +63,14 @@ try:
             "title": i.findtext("lb:filmTitle", namespaces=ns),
             "year": i.findtext("lb:filmYear", namespaces=ns),
             "rating": i.findtext("lb:memberRating", namespaces=ns),
+            "stars": stars(i.findtext("lb:memberRating", namespaces=ns)),
             "watched": i.findtext("lb:watchedDate", namespaces=ns),
             "rewatch": i.findtext("lb:rewatch", namespaces=ns) == "Yes",
             "poster": m.group(1) if m else "",
             "link": i.findtext("link"),
-            "stars": stars(i.findtext("lb:memberRating", namespaces=ns)),
-
         })
-       films.sort(key=lambda f: f["watched"] or "", reverse=True)
+    # Newest watched date first (not newest logged)
+    films.sort(key=lambda f: f["watched"] or "", reverse=True)
     save("_data/letterboxd.json", films)
 except Exception as e:
     print("Letterboxd fetch failed:", e)
