@@ -64,6 +64,7 @@ try:
             "stars": stars(i.findtext("lb:memberRating", namespaces=ns)),
 
         })
+       films.sort(key=lambda f: f["watched"] or "", reverse=True)
     save("_data/letterboxd.json", films)
 except Exception as e:
     print("Letterboxd fetch failed:", e)
