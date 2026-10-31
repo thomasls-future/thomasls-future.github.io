@@ -39,6 +39,12 @@ try:
 except Exception as e:
     print("Last.fm fetch failed:", e)
 
+def stars(r):
+    if not r:
+        return ""
+    r = float(r)
+    return "★" * int(r) + ("½" if r % 1 else "")
+
 try:
     ns = {"lb": "https://letterboxd.com"}
     root = ET.fromstring(get(f"https://letterboxd.com/{LB_USER}/rss/"))
@@ -55,6 +61,8 @@ try:
             "rewatch": i.findtext("lb:rewatch", namespaces=ns) == "Yes",
             "poster": m.group(1) if m else "",
             "link": i.findtext("link"),
+            "stars": stars(i.findtext("lb:memberRating", namespaces=ns)),
+
         })
     save("_data/letterboxd.json", films)
 except Exception as e:
