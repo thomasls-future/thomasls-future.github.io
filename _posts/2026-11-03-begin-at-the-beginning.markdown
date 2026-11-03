@@ -6,7 +6,7 @@ excerpt: "Not sure where this will go, but it's a start."
 image: /assets/img/IMG_1748.jpg
 ---
 
-I've been in my chosen vocation for over two decades. That's long enough for titles to change three or four times, for countless tools to appear and evolve before becoming obsolete. I've read just as many articles bemoaning the end of design as I have others proclaiming it's inevitable survival. At this point, all I want is to do interesting work and help people communicate in the process. After all, I'm not my job and neither are you.
+I've been in my chosen vocation for over two decades. That's long enough for titles to change three or four times, for countless tools to appear and evolve before becoming obsolete. I've read just as many articles bemoaning the end of design as I have others proclaiming it's inevitable survival. At this point, all I want is to do interesting work and help people communicate in the process. After all, I'm not my job, and neither are you.
 
 The plan is for this to be a kind of portfolio, even while a debate quietly rages over the necessity of a portfolio. So this will also be a centralized location to collect links to music I've heard, movies I've seen, books I've read, video games I've played.
 
